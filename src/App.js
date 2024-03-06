@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Pages from "./pages/Pages";
+import Category from "./components/Category";
+import { BrowserRouter } from "react-router-dom";
+import Search from "./components/Search";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { GrRestaurant } from "react-icons/gr";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Nav>
+          <GrRestaurant></GrRestaurant>
+          <Logo to={"/"}>Learn to COOK BRO!</Logo>
+        </Nav>
+        <Search />
+        <Category />
+        <Pages />
+      </BrowserRouter>
     </div>
   );
 }
+const Logo = styled(Link)`
+  text-decoration: none;
+  font-size: 0.8rem
+  font-weight:400;
+  font-family: "Montserrat", cursive;
+  `;
 
+const Nav = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 4rem 0rem;
+  svg {
+    font-size: 1.7rem;
+  }
+`;
 export default App;
